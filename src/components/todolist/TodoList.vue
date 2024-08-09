@@ -38,17 +38,17 @@ const saveTask = (index) => {
 <template>
     <div class="container">
         <div class="row">
-            <div class="col d-flex justify-content-center align-items-center vh-100">
-                <div class="border h-50 w-50 text-center p-5 rounded-5 bg-info">
-                    <h2 for="title mb-2">To-do list</h2>
+                <div class="text-center mt-5">
+                    <h2 for="title">To-do list</h2>
                     <form @submit.prevent="pushTask">
-                    <input class="form-control" type="text" v-model="inputValue" >
-                    <button class="btn btn-light mt-2"  v-if="inputValue.length >= 1">Invia</button>
+                    <input class="form-control mt-4" type="text" v-model="inputValue" placeholder="Aggiungi tasks">
+                    <button class="btn btn-light mt-4"  v-if="inputValue.length >= 1">Invia</button>
                     </form>
-                    <div class="d-flex aling-items-center justify-content-around mt-3 ">
-                        <div class="table-responsive" style="max-height: 200px;">
-                        <table class="table">
-                            <thead>
+                    
+                </div>
+                <div class="d-flex aling-items-center justify-content-around mt-5 w-52">
+                        <table class="table text-center">
+                            <thead v-if="tasks.length > 0">
                                 <tr>
                                     <th>Indice</th>
                                     <th>Nome task</th>
@@ -68,7 +68,7 @@ const saveTask = (index) => {
                                     <tr v-else>
                                         <td>{{ task.id }}</td>
                                         <td>
-                                            <input v-model="editedTaskName" type="text">
+                                            <input v-model="editedTaskName" type="text" class="btn btn-light" autofocus>
                                         </td>
                                         <td>
                                             <button class="btn btn-success" @click="saveTask(index)">Salva</button>
@@ -79,11 +79,7 @@ const saveTask = (index) => {
                         </table>
                     </div>
                     </div>
-                </div>
 
             </div>
-        </div>
-
-    </div>
 </template>
 
