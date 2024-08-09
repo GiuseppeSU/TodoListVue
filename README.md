@@ -1,5 +1,5 @@
 Todo List in Vue.js
-Un semplice progetto di esempio per esercitarsi con Vue.js. Questo progetto crea una lista di attività (todo list) e ti permette di aggiungere, contrassegnare come completate e rimuovere attività.
+Un semplice progetto di esempio per esercitarsi con Vue.js. Questo progetto crea una lista di attività (todo list) e ti permette di aggiornare, rimuovere attività.
 
 Configurazione dell'IDE consigliata
 VS Code: un editor di codice potente e molto popolare.
