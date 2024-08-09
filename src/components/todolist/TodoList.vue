@@ -4,12 +4,13 @@ const tasks = ref([])
 const inputValue = ref('')
 const editedTaskName = ref('')
 let nextId = 1
-
 const pushTask = () => {
     const newTask = {
         id: nextId,
         name: inputValue.value,
-        editing: false
+        editing: false,
+        completed: false 
+
     }
     nextId++
     tasks.value.push(newTask)
@@ -31,6 +32,10 @@ const startEditing = (index) => {
 const saveTask = (index) => {
     tasks.value[index].name = editedTaskName.value;
     tasks.value[index].editing = false;
+}
+
+const success = (index) => {
+   tasks.value[index].completed = !tasks.value[index].completed;
 }
 
 </script>
@@ -57,12 +62,13 @@ const saveTask = (index) => {
                             </thead>
                             <tbody>
                                 <template v-for="(task, index) in tasks" :key="task.id">
-                                    <tr v-if="!task.editing">
+                                    <tr v-if="!task.editing" :class="{ strikethrough: task.completed }">
                                         <td>{{ index + 1}}</td>
                                         <td>{{ task.name }}</td>
                                         <td>
                                             <button class="btn btn-danger" @click="deleteTasks(index)">Elimina</button>
                                             <button class="btn btn-warning ms-2" @click="startEditing(index)">Modifica</button>
+                                            <button class="btn btn-success ms-2" @click="success(index)">Completata</button>
                                         </td>
                                     </tr>
                                     <tr v-else>
@@ -83,3 +89,8 @@ const saveTask = (index) => {
             </div>
 </template>
 
+<style>
+.strikethrough td {
+            text-decoration: line-through;
+        }
+</style>
