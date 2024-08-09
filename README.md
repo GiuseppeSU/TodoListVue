@@ -9,7 +9,7 @@ Clona il progetto:
 
 bash
 Copia codice
-git clone https://github.com/tuo-utente/tuo-progetto-vue.git
+git clone https://github.com/GiuseppeSU/TodoListVue.git
 Naviga nella cartella del progetto:
 
 bash
